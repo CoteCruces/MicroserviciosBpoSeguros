@@ -62,9 +62,11 @@ Crear `.vscode/launch.json` (esa carpeta está en `.gitignore`, así que no se s
 
 | Método | Ruta | Cuerpo | Respuesta |
 |---|---|---|---|
-| POST | `/api/notificaciones/clave-temporal` | `{"correo","claveTemporal","motivo"}` | 202 `{"mensaje":"Correo enviado"}` · 400 datos inválidos · 502 Gmail falló |
+| POST | `/api/notificaciones/clave-temporal` | `{"correo","claveTemporal","motivo","rol"}` | 202 `{"mensaje":"Correo enviado"}` · 400 datos inválidos · 502 Gmail falló |
 
 `motivo` es `CREACION` o `RECUPERACION` (cambia el asunto y la introducción del correo).
+`rol` es **opcional**: `ASEGURADO` (por defecto), `LIQUIDADOR` o `ANALISTA`. Solo cambia el texto del correo de bienvenida
+(un liquidador no recibe "para que sigas tus siniestros", sino "para que gestiones los siniestros que se te asignen").
 
 ## Probarlo
 
@@ -80,6 +82,7 @@ Casos de error para probar en Postman:
 
 - Correo sin `@` → **400** "El correo no es válido"
 - `motivo` distinto de CREACION/RECUPERACION → **400**
+- `rol` distinto de ASEGURADO/LIQUIDADOR/ANALISTA → **400**
 - Contraseña de aplicación incorrecta → **502** "No se pudo enviar el correo. Inténtalo más tarde"
 
 ## Desde la app Android
