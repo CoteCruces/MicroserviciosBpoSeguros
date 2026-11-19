@@ -149,21 +149,17 @@ public class UsuarioService {
     
 
         public UsuarioResponse iniciarSesion(LoginRequest datos) {
-        String rut = Validaciones.limpiarRut(datos.rut());
+            String rut = Validaciones.limpiarRut(datos.rut());
 
-        Usuario usuario = usuarioRepository.findByRut(rut)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED,
-                        "RUT incorrecto: no existe una cuenta con ese RUT"));
-
-        if (!claveService.verificar(datos.contrasena(), usuario.getContrasena())) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Contraseña incorrecta");
+            Usuario usuario = usuarioRepository.findByRut(rut)
+                 .filter(u -> claveService.verificar(datos.contrasena(), u.getContrasena()))
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "RUT o contraseña incorrectos"));
+            
+            if (!usuario.isActivo()) {
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Tu cuenta no está activa. Comunícate con BPO Seguros");
+            }
+            return aRespuesta(usuario);
         }
-
-        if (!usuario.isActivo()) {
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Tu cuenta no está activa. Comunícate con BPO Seguros");
-        }
-        return aRespuesta(usuario);
-    }
 
 
     @Transactional
