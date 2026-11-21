@@ -50,10 +50,11 @@ public class UsuarioService {
         Map<Long, String> roles = nombresDeRoles();
         String filtro = buscar == null ? "" : buscar.trim().toLowerCase();
 
-        return usuarios.stream()
+                return usuarios.stream()
                 .filter(u -> filtro.isEmpty()
                         || u.getNombre().toLowerCase().contains(filtro)
                         || u.getCorreo().toLowerCase().contains(filtro)
+                        || (u.getCodigo() != null && u.getCodigo().toLowerCase().contains(filtro))
                         || u.getRut().toLowerCase().contains(filtro.replace(".", "").replace("-", "")))
                 .map(u -> aRespuesta(u, roles.getOrDefault(u.getRolId(), "")))
                 .toList();
