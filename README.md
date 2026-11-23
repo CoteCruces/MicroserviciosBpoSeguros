@@ -76,3 +76,23 @@ Invoke-RestMethod "http://localhost:8083/api/siniestros?porReasignar=true"
 
 # Reasignar el caso 1 (Vehículos) a Rodrigo (id 11, equipo Vehículos)
 Invoke-RestMethod -Method Put -Uri http://localhost:8083/api/siniestros/1/asignacion -ContentType "application/json; charset=utf-8" -Body '{"solicitanteId":14,"liquidadorId":11}'
+
+
+Base de datos para probar:
+    "(1, 'Camila Andrea Rojas Fuentes', '158423715', 'camila.rojas@correo.ejemplo', '', 'Maipú', '', '', 1, 1), " +
+    "(2, 'Jorge Luis Pizarro Contreras', '94185521', 'jorge.pizarro@correo.ejemplo', '', 'Puente Alto', '', '', 1, 1), " +
+    "(3, 'Valentina Soto Muñoz', '192058848', 'vale.soto@correo.ejemplo', '', 'Ñuñoa', '', '', 1, 1), " +
+    "(4, 'Héctor Manuel Araya Díaz', '78362197', 'h.araya@correo.ejemplo', '', 'Viña del Mar', '', '', 1, 1), " +
+    "(5, 'Daniela Paz Vergara Lagos', '175520937', 'daniela.vergara@correo.ejemplo', '', 'La Florida', '', '', 1, 1), " +
+    "(6, 'Ricardo Ignacio Espinoza Tapia', '136647083', 'r.espinoza@correo.ejemplo', '', 'Concepción', '', '', 1, 1), " +
+    "(7, 'Francisca Belén Morales Henríquez', '201184657', 'fran.morales@correo.ejemplo', '', 'Quilicura', '', '', 1, 1), " +
+    "(8, 'Luis Alberto Carrasco Peña', '112903372', 'luis.carrasco@correo.ejemplo', '', 'Rancagua', '', '', 1, 1), " +
+    "(9, 'Paulina Fernández Ruiz', '162345672', 'paulina.fernandez@andes.ejemplo', '', '', 'LIQ-01', 'Vehículos', 1, 2), " +
+    "(10, 'Matías Gallardo Silva', '138765431', 'matias.gallardo@andes.ejemplo', '', '', 'LIQ-02', 'Hogar', 1, 2), " +
+    "(11, 'Rodrigo Salinas Ortega', '183459120', 'rodrigo.salinas@andes.ejemplo', '', '', 'LIQ-03', 'Vehículos', 1, 2), " +
+    "(12, 'Constanza Ibarra Núñez', '145678900', 'constanza.ibarra@andes.ejemplo', '', '', 'LIQ-04', 'Hogar', 1, 2), " +
+    "(13, 'Andrés Bravo Medina', '11223344K', 'andres.bravo@andes.ejemplo', '', '', 'LIQ-05', 'Vehículos', 0, 2), " +
+    "(14, 'Natalia Reyes Campos', '198761230', 'natalia.reyes@andes.ejemplo', '', '', 'ADM-01', 'Administración', 1, 3), " +
+    "(15, 'Felipe Cortés Valdés', '109876542', 'felipe.cortes@andes.ejemplo', '', '', 'ADM-02', 'Administración', 1, 3)"
+
+    
