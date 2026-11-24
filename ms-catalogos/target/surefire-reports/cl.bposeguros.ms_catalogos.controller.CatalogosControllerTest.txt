@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: cl.bposeguros.ms_catalogos.controller.CatalogosControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.93 s -- in cl.bposeguros.ms_catalogos.controller.CatalogosControllerTest

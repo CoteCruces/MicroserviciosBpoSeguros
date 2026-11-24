@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: cl.bposeguros.ms_catalogos.service.CatalogoServiceTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.707 s -- in cl.bposeguros.ms_catalogos.service.CatalogoServiceTest
